@@ -22,10 +22,11 @@ const second = (val) => {
 
 // Refactor the following code...
 export const handlePromise = first()
-  .then((first) => first)
   .then((first) => second(first))
-  .then((second) => second);
-
+  .then((second) => {
+    console.log(second);
+    return second;
+  });
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-4"
 // If the test has all tests passed, switch to the next exercise file

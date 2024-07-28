@@ -13,18 +13,18 @@ export const getFirstPromiseOrFail = (promises) => {
 export const getQuantityOfRejectedPromises = (promises) => {
   //*  write code to pass test ⬇ ️
   return Promise.allSettled(promises).then((results) => {
-    return results.reduce((count, result) => {
-      return result.status === "rejected" ? count + 1 : count;
-    }, 0);
+    return results.filter((result) => {
+      return result.status === "rejected";
+    }).length;
   });
 };
 
 export const getQuantityOfFulfilledPromises = (promises) => {
   //*  write code to pass test ⬇ ️
   return Promise.allSettled(promises).then((results) => {
-    return results.reduce((count, result) => {
-      return result.status === "fulfilled" ? count + 1 : count;
-    }, 0);
+    return results.filter((result) => {
+      return result.status === "fulfilled";
+    }).length;
   });
 };
 

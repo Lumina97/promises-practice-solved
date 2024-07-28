@@ -38,8 +38,8 @@ export function alwaysThrows() {
 
 export function onReject(error) {
   // Your code goes here...
-  if (error.message) console.log(error.message);
-  else console.log(error);
+  const messageToLog = error.message || error;
+  console.log(messageToLog);
 }
 
 /**
@@ -64,18 +64,18 @@ export function onReject(error) {
  */
 
 // Your code goes here...
-export const promise = Promise.resolve("Promise is resolved!")
-  .then(() => iterate(1))
-  .then(() => iterate(2))
-  .then(() => iterate(3))
-  .then(() => iterate(4))
-  .then(() => iterate(5))
-  .then(() => alwaysThrows())
-  .then(() => iterate(6))
-  .then(() => iterate(7))
-  .then(() => iterate(8))
-  .then(() => iterate(9))
-  .then(() => iterate(10))
+export const promise = Promise.resolve(iterate(1))
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(alwaysThrows)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
+  .then(iterate)
   .catch((err) => {
     return onReject(err);
   });

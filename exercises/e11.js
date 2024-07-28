@@ -12,7 +12,6 @@
  * * Import fetch function from 'node-fetch' to use the fetch() function in code
  * * set the usersUrl constant to store the json-server 'users' endpoint path
  */
-import fetch from "node-fetch";
 export const usersUrl = "http://localhost:3000/users/";
 
 /**
@@ -28,9 +27,7 @@ export const usersUrl = "http://localhost:3000/users/";
 
 const getLoginList = (data) => {
   // Your code goes here...
-  return data.map((login) => {
-    return login.login;
-  });
+  return data.map((login) => login.login);
 };
 
 /**
@@ -62,7 +59,7 @@ export const result = getData
     console.log(result);
     return result;
   })
-  .catch((e) => console.log(e));
+  .catch((error) => console.log(error));
 
 // === TEST YOURSELF ===
 // Once you're finished run the test with "npm run test-11"

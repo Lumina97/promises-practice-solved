@@ -19,7 +19,8 @@
     "test-9": "vitest --run e9.",
     "test-10": "vitest --run e10.",
     "test-11": "vitest --run e11.",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "npx json-server ./data/db.json"
   },
   "keywords": [],
   "author": "",

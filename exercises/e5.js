@@ -27,7 +27,10 @@ export const getPromise = () => {
     res("MANHATTAN");
   })
     .then((res) => attachTitle(res))
-    .then((res) => console.log(res));
+    .then((res) => {
+      console.log(res);
+      return res;
+    });
 };
 
 // === TEST YOURSELF ===

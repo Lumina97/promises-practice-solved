@@ -23,8 +23,7 @@ export function parsePromised(jsonArg) {
   // Your code goes here...
   return new Promise((res, err) => {
     try {
-      const data = JSON.parse(jsonArg);
-      res(data);
+      res(JSON.parse(jsonArg));
     } catch (error) {
       err(error);
     }
@@ -60,8 +59,7 @@ export const handlePromise = (promise) => {
   return promise
     .then((result) => result)
     .catch((err) => {
-      if (err.message) onReject(err);
-      else return err;
+      err.message ? onReject(err) : err;
     });
 };
 

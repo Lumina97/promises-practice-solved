@@ -16,9 +16,9 @@
  */
 
 export const getPromise = (booleanValue) => {
-  return new Promise((res, err) => {
+  return new Promise((res, rej) => {
     if (booleanValue) res("The PROMISE was RESOLVED");
-    else err("The PROMISE was REJECTED");
+    else rej("The PROMISE was REJECTED");
   });
 };
 
@@ -32,11 +32,10 @@ export const getPromise = (booleanValue) => {
  */
 
 export const handlePromise = (promise) => {
-  // Your code goes here...
-  const onFulfilled = (resolved) => resolved;
-  const onRejected = (rejected) => "Uh Oh";
-
-  return promise.then(onFulfilled, onRejected);
+  return promise.then(
+    (resolved) => resolved,
+    () => "Uh Oh"
+  );
 };
 
 // === TEST YOURSELF ===
